@@ -26,6 +26,6 @@ Preserve the protocol descriptions and uncertainty when updating results. Add pu
 
 ## Citation and lab identity
 
-`assets/reform3d.bib` references the project website without inventing publication metadata. The same entry appears in the citation section with copy and download controls. Update both together when a publication citation is confirmed.
+`assets/reform3d.bib` contains the supplied citation. The same entry appears in the citation section with copy and download controls. Update both together when citation details change.
 
-The footer references the user-supplied CVML-KU logo URL remotely. To make it self-contained, download the approved logo into `assets/` and update its image and link paths. The corpus section reports manuscript pretraining statistics, separately from evaluation datasets and public release assets.
+The footer uses the local CVML-KU logo at `assets/cvml_ku_lab.png`. Include that file when moving or publishing the website. The corpus section reports manuscript pretraining statistics, separately from evaluation datasets and public release assets.
