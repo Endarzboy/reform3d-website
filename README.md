@@ -1,31 +1,35 @@
 # REFORM-3D project website
 
-A static research website for REFORM-3D. It uses plain HTML, CSS, and JavaScript with local figure assets and no build step.
+A static research website for REFORM-3D, built with HTML, CSS, and JavaScript. No dependencies or build step are required.
+
+- [Website](https://endarzboy.github.io/reform3d-website/)
+- [Evaluation code and documentation](https://github.com/Endarzboy/REFORM3D)
+
+## Files
+
+- `index.html`: research content, results, and citation.
+- `styles.css`: styling and responsive layouts.
+- `script.js`: navigation, dataset selection, and clipboard controls.
+- `assets/`: figures, favicon, lab logo, and downloadable BibTeX.
 
 ## Preview
 
-Open this folder in your editor and use its local browser preview. For an HTTP preview, run from this folder:
+Run from this folder:
 
 ```bash
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000/`. Clipboard buttons require a secure context such as HTTPS or localhost. Without clipboard access, commands remain selectable. Navigation and expandable content work without JavaScript.
+Open `http://localhost:8000/`. Clipboard controls require HTTPS or localhost.
 
-## Move and publish
+## Publish
 
-Copy `index.html`, `styles.css`, `script.js`, and the complete `assets/` directory into the root of the standalone website repository. Keep that repository’s Git metadata. GitHub Pages can publish `main` from `/ (root)` without a custom build.
+Keep the website files and complete `assets/` directory at the repository root. In GitHub **Settings → Pages**, select **Deploy from a branch**, **main**, and **/ (root)**. Updates publish when pushed to `main`.
 
-The canonical and sharing URLs currently point to `https://endarzboy.github.io/reform3d-website/`. Update those URLs in `index.html` if the address changes.
+Update the canonical and sharing URLs in `index.html` if the website address changes.
 
-## Content
+## Maintain
 
-The abstract, geometric policies, selected results, and acknowledgment follow the supplied manuscript. Selected tables show VoCo, 3DINO, SAM-Med3D, Hi-End-MAE, MiM, and GL-MAE alongside the controlled Med3DINO comparison. Dataset selectors expose the selected source-table columns, with native external interfaces, GAP for 3DINO/Med3DINO, alternative CLS readouts, and reported mean ± SD. They summarize paper results; the public KiTS23/MMWHS workflow is documented separately under “Use REFORM-3D.”
-
-Preserve the protocol descriptions and uncertainty when updating results. Add publication and citation links only when their details are confirmed.
-
-## Citation and lab identity
-
-`assets/reform3d.bib` contains the supplied citation. The same entry appears in the citation section with copy and download controls. Update both together when citation details change.
-
-The footer uses the local CVML-KU logo at `assets/cvml_ku_lab.png`. Include that file when moving or publishing the website. The corpus section reports manuscript pretraining statistics, separately from evaluation datasets and public release assets.
+- Preserve dataset, feature-interface, protocol, and uncertainty descriptions when updating manuscript results.
+- Keep the displayed citation in `index.html` synchronized with `assets/reform3d.bib`.
+- Replace the Paper button’s repository placeholder with the public paper URL when available.
