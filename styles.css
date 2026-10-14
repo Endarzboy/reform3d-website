@@ -287,3 +287,59 @@ footer {
     font-size: 13px;
   }
 }
+
+.research-team {
+  margin-top: 32px;
+  max-width: 850px;
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.authors li {
+  font-size: 16px;
+}
+
+.authors a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.authors a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.authors sup {
+  margin-left: 3px;
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.affiliations p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.correspondence {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.correspondence a {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .authors {
+    gap: 10px 18px;
+  }
+}
