@@ -206,3 +206,31 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.framework-figure {
+  margin: 56px 0 0;
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.framework-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.framework-figure figcaption {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .framework-figure {
+    padding: 10px;
+    margin-top: 36px;
+  }
+}
