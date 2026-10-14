@@ -220,10 +220,15 @@ p code { overflow-wrap: anywhere; font-size: 0.9em; }
 .corpus-layout h3 { margin-top: 0; }
 .corpus-layout p { color: var(--muted); }
 .modality-row { margin-bottom: 18px; }
+.modality-row[data-modality="CT"] { --modality-color: #176b5b; }
+.modality-row[data-modality="MR"] { --modality-color: #3569b0; }
+.modality-row[data-modality="PET"] { --modality-color: #9b6920; }
+.modality-row[data-modality="CTA"] { --modality-color: #8053a2; }
+.modality-row[data-modality="CBCT"] { --modality-color: #b55369; }
 .modality-row > div:first-child { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 13px; }
 .modality-row span { color: var(--muted); }
 .modality-track { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
-.modality-track > span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.modality-track > span { display: block; height: 100%; background: var(--modality-color, var(--accent)); border-radius: 4px; }
 .corpus-access { max-width: 850px; margin: 24px 0 0; color: var(--muted); font-size: 13px; }
 
 /* Citation and lab identity */
