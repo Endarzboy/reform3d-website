@@ -343,3 +343,56 @@ footer {
     gap: 10px 18px;
   }
 }
+
+.command-panels {
+  min-width: 0;
+}
+
+.command-panel {
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #203530;
+}
+
+.command-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #456057;
+  color: #e6f1e9;
+  font-size: 12px;
+}
+
+.command-panel pre {
+  margin: 0;
+  padding: 18px;
+  border-radius: 0;
+}
+
+.copy-button {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border: 1px solid #8da99d;
+  border-radius: 5px;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: #345248;
+}
+
+.copy-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.copy-status {
+  min-height: 1.5em;
+  font-size: 13px;
+}
