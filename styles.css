@@ -15,11 +15,17 @@ a { color: inherit; text-underline-offset: 5px; }
 a:hover { color: var(--accent); }
 a:focus-visible, button:focus-visible, summary:focus-visible, .table-scroll:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .site-header, main, footer { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
-.site-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; border-bottom: 1px solid var(--line); background: var(--background); }
+.site-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #edf4ee 0%, var(--background) 100%); box-shadow: 0 12px 22px -18px rgba(23, 107, 91, 0.35); animation: menu-fade-down 450ms ease-out; }
 .brand { flex-shrink: 0; font-size: 22px; font-weight: 750; text-decoration: none; letter-spacing: -1px; }
 .brand span { color: var(--accent); }
 nav { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; }
 nav a { text-decoration: none; }
+#primary-nav a { padding: 6px 10px; border-radius: 6px; transition: background-color 180ms ease, color 180ms ease; }
+#primary-nav a:hover, #primary-nav a:focus-visible { background: #e0ece3; color: var(--accent); }
+@keyframes menu-fade-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .menu-toggle { padding: 8px 14px; border: 1px solid var(--line); border-radius: 5px; font: inherit; color: var(--accent); background: transparent; cursor: pointer; }
 .hero { padding-block: 70px 54px; }
 .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 1.8px; font-size: 12px; font-weight: 700; }
@@ -72,6 +78,11 @@ h4 { margin: 12px 0; font-size: 19px; line-height: 1.4; }
 .button:hover { background: #105344; color: white; }
 .button-outline { background: transparent; color: var(--accent); }
 .button-outline:hover { background: var(--tint); color: var(--accent); }
+.actions .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+.button-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.title-line { display: flex; align-items: center; gap: 16px; }
+.site-header .brand { display: inline-flex; align-items: center; gap: 0; }
+.brand-icon { width: 28px; height: 28px; margin-right: 10px; flex-shrink: 0; color: var(--accent); }
 .hero-index { display: flex; flex-wrap: wrap; gap: 12px 30px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 .section { padding-block: 60px; border-top: 1px solid var(--line); }
 section[id], #main-content, #site-footer { scroll-margin-top: var(--header-offset); }
@@ -154,12 +165,13 @@ p code { overflow-wrap: anywhere; font-size: 0.9em; }
 }
 @media (max-width: 760px) {
   :root { --header-offset: 200px; }
+  .title-line { gap: 10px; font-size: clamp(32px, 8vw, 42px); }
   .site-header, main, footer { width: calc(100% - 32px); }
   .site-header { flex-wrap: wrap; padding-block: 16px; gap: 14px; }
   #primary-nav { width: 100%; gap: 12px 22px; }
   .menu-toggle:not([hidden]) { display: inline-block; }
   .menu-enabled #primary-nav { display: none; }
-  .menu-enabled #primary-nav.is-open { display: flex; }
+  .menu-enabled #primary-nav.is-open { display: flex; padding: 12px; border-radius: 8px; background: #eaf1eb; animation: menu-fade-down 250ms ease-out; }
   .hero { padding-block: 40px; }
   .intro, .lead { font-size: 18px; }
   .authors { gap: 10px 18px; }
@@ -176,7 +188,11 @@ p code { overflow-wrap: anywhere; font-size: 0.9em; }
   .site-footer { flex-direction: column; align-items: flex-start; }
   .acknowledgments { padding-block: 28px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .site-header, .menu-enabled #primary-nav.is-open { animation: none; }
+  #primary-nav a { transition: none; }
+}
 
 /* Representative encoder results */
 .result-explorer { margin-block: 28px; }
