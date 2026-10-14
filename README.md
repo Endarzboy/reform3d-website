@@ -33,3 +33,4 @@ Update the canonical and sharing URLs in `index.html` if the website address cha
 - Preserve dataset, feature-interface, protocol, and uncertainty descriptions when updating manuscript results.
 - Keep the displayed citation in `index.html` synchronized with `assets/reform3d.bib`.
 - Replace the Paper button’s repository placeholder with the public paper URL when available.
+- Replace the Checkpoints button’s Hugging Face placeholder with the published model collection URL when available.
