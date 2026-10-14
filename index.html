@@ -41,8 +41,10 @@
   <header class="site-header">
     <a class="brand" href="#">REFORM<span>–3D</span></a>
     <nav aria-label="Main navigation">
+      <a href="#abstract">Abstract</a>
       <a href="#framework">Framework</a>
       <a href="#protocol">Protocol</a>
+      <a href="#findings">Findings</a>
       <a href="#start">Get started</a>
       <a href="https://github.com/Endarzboy/REFORM3D">GitHub ↗</a>
     </nav>
@@ -51,7 +53,8 @@
   <main id="main-content" tabindex="-1">
     <section class="hero">
       <p class="eyebrow">Frozen 3D medical encoder assessment</p>
-      <h1>Understand what your<br>3D encoder preserves.</h1>
+      <!-- <h1>Understand what your<br>3D encoder preserves.</h1> -->
+       <h1><p class="paper-title">REFORM-3D: A Representation-Centric Evaluation Framework for 3D Medical Vision Foundation Models</p></h1>
       <p class="intro">
         Assess controlled spacing sensitivity, CT–MR anatomical
         alignment, and low-shot organ recognition through three
@@ -125,7 +128,53 @@
         </figcaption>
       </figure>
     </section>
+    <section id="abstract" class="section abstract-section">
+    <p class="eyebrow">Research overview</p>
+      <h2>Abstract</h2>
 
+      <div class="abstract-text">
+        <p>
+          Evaluation of 3D medical foundation models is typically dominated
+          by downstream task scores, which entangle representation quality
+          with adaptation choices. This is especially critical in volumetric
+          imaging, where spacing and anisotropy can substantially alter image
+          statistics while the anatomy itself remains unchanged.
+        </p>
+
+        <p>
+          We therefore introduce <strong>REFORM-3D</strong>, a
+          <strong>R</strong>epresentation-centric
+          <strong>E</strong>valuation
+          <strong>F</strong>ramew<strong>OR</strong>k for benchmarking frozen
+          3D medical vision foundation <strong>M</strong>odels across three
+          questions: Acquisition Robustness, asking whether features remain
+          stable when spacing varies while anatomy is fixed; Cross-Modal
+          Anatomical Alignment, asking whether labeled anatomical structures
+          remain recoverable across modalities under balanced bidirectional
+          retrieval; and Low-Shot Anatomical Transfer, asking whether organ
+          identity remains recoverable from limited labeled support under
+          case-disjoint evaluation.
+        </p>
+
+        <p>
+          These are also pretraining questions, because what a 3D encoder
+          learns depends on how volumes are geometrically presented during
+          self-supervised pretraining. We further introduce Med3DINO encoder
+          family, pretrained on 62.6K unlabeled MR, CT, PET, CTA, and CBCT
+          volumes under three explicit geometric assumptions: isotropic
+          normalization, voxel-relative sampling, and spacing-aware resampling.
+        </p>
+
+        <p>
+          Across Med3DINO and heterogeneous external encoders, REFORM-3D
+          reveals module-specific strengths rather than a single model
+          ordering. Within the controlled Med3DINO comparison, voxel-relative
+          sampling yields lower embedding drift, whereas spacing-aware
+          resampling favors anatomical transfer; semantic-transfer advantages
+          depend on the dataset and feature type.
+        </p>
+      </div>
+    </section>
     <section id="framework" class="section">
       <p class="eyebrow">The framework</p>
       <h2>Three perspectives on representation quality.</h2>
@@ -220,6 +269,49 @@
       </a>
     </section>
 
+    <section id="findings" class="section">
+      <p class="eyebrow">Key findings</p>
+      <h2>Representation quality has multiple dimensions.</h2>
+
+      <div class="findings-list">
+        <article>
+          <h3>Stability and semantic usefulness can differ.</h3>
+          <p>
+            The manuscript’s controlled spacing experiments show that
+            embedding drift, feature-space structure, and semantic transfer
+            provide complementary evidence. Low drift alone does not
+            establish robust anatomical representations.
+          </p>
+        </article>
+
+        <article>
+          <h3>Pretraining geometry shapes anatomical recoverability.</h3>
+          <p>
+            Within the controlled Med3DINO comparison, spacing-aware
+            pretraining achieves the highest CT–MR retrieval scores and
+            low-shot probe balanced accuracy on TotalSegmentator CT–MR,
+            MMWHS, and AMOS22 with both CLS and GAP features.
+          </p>
+        </article>
+
+        <article>
+          <h3>Encoder strengths depend on the evaluation setting.</h3>
+          <p>
+            External encoders exhibit different strengths across datasets
+            and modules. These comparisons support evaluating each property
+            separately when selecting an encoder for a particular task.
+          </p>
+        </article>
+      </div>
+
+      <p class="findings-note">
+        These findings summarize the manuscript experiments. Controlled
+        spacing changes are geometric stress tests; they do not reproduce
+        the full variability of clinical acquisition. External encoders
+        provide contextual comparisons, while Med3DINO variants form the
+        controlled geometric-policy comparison.
+      </p>
+    </section>
     <section id="start" class="section getting-started">
       <div>
         <p class="eyebrow">From inputs to evidence</p>
