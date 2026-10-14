@@ -234,3 +234,56 @@ footer {
     margin-top: 36px;
   }
 }
+
+.protocol-table-wrap {
+  margin-top: 32px;
+  overflow-x: auto;
+}
+
+.protocol-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 15px;
+}
+
+.protocol-table caption {
+  text-align: left;
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.protocol-table th,
+.protocol-table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.protocol-table thead {
+  background: #eaf0e8;
+}
+
+.protocol-table tbody th {
+  font-weight: 600;
+}
+
+.protocol-table td {
+  color: var(--muted);
+}
+
+.protocol-note {
+  max-width: 800px;
+  margin-block: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .protocol-table th,
+  .protocol-table td {
+    padding: 14px 8px;
+    font-size: 13px;
+  }
+}
