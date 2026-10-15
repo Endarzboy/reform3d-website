@@ -1,65 +1,3 @@
-// Navigation remains visible when JavaScript is unavailable.
-const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-toggle');
-const primaryNav = document.getElementById('primary-nav');
-const mobile = window.matchMedia('(max-width: 760px)');
-
-function updateHeaderOffset() {
-  if (header) {
-    document.documentElement.style.setProperty(
-      '--header-offset', `${Math.ceil(header.getBoundingClientRect().height) + 24}px`
-    );
-  }
-}
-function closeMenu() {
-  if (!menuButton || !primaryNav) return;
-  menuButton.setAttribute('aria-expanded', 'false');
-  primaryNav.classList.remove('is-open');
-  updateHeaderOffset();
-}
-if (header && menuButton && primaryNav) {
-  header.classList.add('menu-enabled');
-  menuButton.hidden = !mobile.matches;
-  menuButton.addEventListener('click', () => {
-    const expanded = menuButton.getAttribute('aria-expanded') !== 'true';
-    menuButton.setAttribute('aria-expanded', String(expanded));
-    primaryNav.classList.toggle('is-open', expanded);
-    updateHeaderOffset();
-  });
-  primaryNav.addEventListener('click', (event) => {
-    const link = event.target.closest('a');
-    if (!link || !mobile.matches) return;
-    closeMenu();
-    // Move focus out of the collapsed menu before the native anchor scroll.
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.setAttribute('tabindex', '-1');
-      target.focus({ preventScroll: true });
-    }
-  });
-  header.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-      menuButton.focus();
-    }
-  });
-  function updateMenuLayout() {
-    // Preserve keyboard focus when a breakpoint hides the current control.
-    if (mobile.matches && primaryNav.contains(document.activeElement)) menuButton.focus();
-    if (!mobile.matches && document.activeElement === menuButton) {
-      const firstLink = primaryNav.querySelector('a');
-      if (firstLink) firstLink.focus();
-    }
-    menuButton.hidden = !mobile.matches;
-    closeMenu();
-  }
-  if (mobile.addEventListener) mobile.addEventListener('change', updateMenuLayout);
-  else mobile.addListener(updateMenuLayout);
-}
-updateHeaderOffset();
-if (header && 'ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(header);
-else window.addEventListener('resize', updateHeaderOffset);
-
 // Copy controls appear only when the Clipboard API is available.
 const defaultCopyStatus = document.querySelector('.copy-status');
 if (navigator.clipboard && window.isSecureContext) {
@@ -102,3 +40,13 @@ document.querySelectorAll('.result-explorer').forEach((explorer) => {
   select.addEventListener('change', showDataset);
   showDataset();
 });
+
+// The lab name remains visible if the optional logo is absent.
+const labLogo = document.querySelector('.lab-logo');
+if (labLogo) {
+  const revealLogo = () => {
+    labLogo.closest('.lab-logo-link').hidden = !labLogo.naturalWidth;
+  };
+  labLogo.addEventListener('load', revealLogo);
+  if (labLogo.complete) revealLogo();
+}
