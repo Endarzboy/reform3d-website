@@ -24,16 +24,9 @@ python -m http.server 8000
 
 Open `http://localhost:8000/`. Clipboard controls require HTTPS or localhost.
 
-## Publish
+<!-- ## Publish
 
 Keep the website files and complete `assets/` directory at the repository root. In GitHub **Settings → Pages**, select **Deploy from a branch**, **main**, and **/ (root)**. Updates publish when pushed to `main`.
 
-Update the canonical and sharing URLs in `index.html` if the website address changes.
+Update the canonical and sharing URLs in `index.html` if the website address changes. -->
 
-## Maintain
-
-- Preserve dataset, feature-interface, protocol, and uncertainty descriptions when updating manuscript results.
-- Keep the displayed citation in `index.html` synchronized with `assets/reform3d.bib`.
-- Replace the Paper badge’s repository placeholder with the public paper URL when available. Update its label in `assets/badge-paper.svg` and its accessible description in `index.html` together.
-- Replace the Checkpoints badge’s Hugging Face placeholder with the published model collection URL when available.
-- Resource badges are local SVGs, so they work without an external badge service.
